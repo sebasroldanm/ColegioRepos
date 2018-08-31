@@ -199,8 +199,6 @@ namespace Logica
             {
                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Solo se admiten imagenes en formato Jpeg o Gif');</script>");
                 //btnigm_calendar.Visible = true;
-
-
                 return null;
             }
 
