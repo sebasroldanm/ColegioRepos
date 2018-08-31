@@ -9,6 +9,7 @@ using Npgsql;
 using NpgsqlTypes;
 
 //Sirvio esta mrd
+//Camilo GG WP
 
 /// <summary>
 /// Descripción breve de DaoUser
