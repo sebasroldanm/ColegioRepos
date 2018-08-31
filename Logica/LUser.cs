@@ -188,6 +188,8 @@ namespace Logica
             return usua;
         }
 
+
+
         protected String cargarImagen(FileUpload foto)
         {
             ClientScriptManager cm = this.ClientScript;
