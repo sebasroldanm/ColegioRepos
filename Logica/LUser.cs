@@ -11,7 +11,7 @@ using System.Data;
 
 namespace Logica
 {
-    public  class LUser
+    public  class LUser : System.Web.UI.Page
     {
         public UUser loggear(string userName, string clave)
         {

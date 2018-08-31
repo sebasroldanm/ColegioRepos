@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -138,7 +137,6 @@ public partial class View_Admin_AgregarAdministrador : System.Web.UI.Page
 
         EUser usua = new EUser();
         DaoUser dat = new DaoUser();
-
 
         usua.UserName = tb_AdministradorUsuario.Text;
         usua.Documento = (Convert.ToInt64(tb_AministradorAdministradorId.Text)).ToString();
