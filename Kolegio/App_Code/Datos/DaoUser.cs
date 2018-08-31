@@ -8,6 +8,8 @@ using Newtonsoft;
 using Npgsql;
 using NpgsqlTypes;
 
+//Sirvio esta mrd
+
 /// <summary>
 /// Descripción breve de DaoUser
 /// </summary>
