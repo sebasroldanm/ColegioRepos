@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
 
 namespace Utilitarios
 {
@@ -16,14 +15,30 @@ namespace Utilitarios
         private Int32 userId;
         private Int32 rolId;
         private String mensaje;
+        private String mensajeAcudiente;
         //
 
         //
-        //Estado Booleanos
+        //Booleano
         //
-        private bool bolEstado;
+        private Boolean L_Aceptar;
+        private Boolean B_Botones;
+        private String notificacion;
+
+        //
+        //Correo
+        private String cUserId;
+        private String cPersona;
+        private String cApePersona;
+        private String cCorreo_l;
+        private String cDestinatario;
+        private String cAsunto;
+        private String cMensaje;
         //
         //
+
+
+
 
         //
         // Session
@@ -76,7 +91,6 @@ namespace Utilitarios
         private string inicio;
         private string mision;
         private string vision;
-
 
         public string UserName { get => userName; set => userName = value; }
         public string Clave { get => clave; set => clave = value; }
@@ -131,6 +145,20 @@ namespace Utilitarios
         public string SCorreo { get => sCorreo; set => sCorreo = value; }
         public string SDocumento { get => sDocumento; set => sDocumento = value; }
         public string SFoto { get => sFoto; set => sFoto = value; }
-        public bool BolEstado { get => bolEstado; set => bolEstado = value; }
+
+        //LABEL'S AND BOOLEN'S
+        public bool L_Aceptar1 { get => L_Aceptar; set => L_Aceptar = value; }
+        public string MensajeAcudiente { get => mensajeAcudiente; set => mensajeAcudiente = value; }
+        public string Notificacion { get => notificacion; set => notificacion = value; }
+        public bool B_Botones1 { get => B_Botones; set => B_Botones = value; }
+
+        //CORREO
+        public string CUserId { get => cUserId; set => cUserId = value; }
+        public string CPersona { get => cPersona; set => cPersona = value; }
+        public string CApePersona { get => cApePersona; set => cApePersona = value; }
+        public string CCorreo_l { get => cCorreo_l; set => cCorreo_l = value; }
+        public string CDestinatario { get => cDestinatario; set => cDestinatario = value; }
+        public string CAsunto { get => cAsunto; set => cAsunto = value; }
+        public string CMensaje { get => cMensaje; set => cMensaje = value; }
     }
 }

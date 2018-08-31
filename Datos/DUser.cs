@@ -174,18 +174,18 @@ namespace Datos
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("usuario.f_insertar_usuarios", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 dataAdapter.SelectCommand.Parameters.Add("_nombre_usua", NpgsqlDbType.Varchar, 100).Value = dat.Nombre;
-                dataAdapter.SelectCommand.Parameters.Add("_rol_id", NpgsqlDbType.Integer).Value = dat.Rol;
+                dataAdapter.SelectCommand.Parameters.Add("_rol_id", NpgsqlDbType.Integer).Value = int.Parse(dat.Rol);
                 dataAdapter.SelectCommand.Parameters.Add("_user_name", NpgsqlDbType.Text).Value = dat.UserName;
                 dataAdapter.SelectCommand.Parameters.Add("_clave", NpgsqlDbType.Text).Value = dat.Clave;
                 dataAdapter.SelectCommand.Parameters.Add("_correo", NpgsqlDbType.Varchar, 100).Value = dat.Correo;
                 dataAdapter.SelectCommand.Parameters.Add("_apellido_usua", NpgsqlDbType.Varchar, 100).Value = dat.Apellido;
                 dataAdapter.SelectCommand.Parameters.Add("_direccion", NpgsqlDbType.Varchar, 100).Value = dat.Direccion;
                 dataAdapter.SelectCommand.Parameters.Add("_telefono", NpgsqlDbType.Varchar, 100).Value = dat.Telefono;
-                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = dat.Documento;
+                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = int.Parse(dat.Documento);
                 dataAdapter.SelectCommand.Parameters.Add("_foto_usua", NpgsqlDbType.Varchar, 100).Value = dat.Foto;
                 dataAdapter.SelectCommand.Parameters.Add("_fecha_nac", NpgsqlDbType.Varchar, 100).Value = dat.fecha_nacimiento;
-                dataAdapter.SelectCommand.Parameters.Add("_dep_nacimiento", NpgsqlDbType.Integer).Value = dat.Departamento;
-                dataAdapter.SelectCommand.Parameters.Add("_ciu_nacimiento", NpgsqlDbType.Integer).Value = dat.Ciudad;
+                dataAdapter.SelectCommand.Parameters.Add("_dep_nacimiento", NpgsqlDbType.Integer).Value = int.Parse(dat.Departamento);
+                dataAdapter.SelectCommand.Parameters.Add("_ciu_nacimiento", NpgsqlDbType.Integer).Value = int.Parse(dat.Ciudad);
                 dataAdapter.SelectCommand.Parameters.Add("_session", NpgsqlDbType.Text).Value = dat.Session;
 
                 conection.Open();
@@ -274,7 +274,7 @@ namespace Datos
             {
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("usuario.f_obtener_acudiente", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = dat.Documento;
+                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = int.Parse(dat.Documento);
 
                 conection.Open();
                 dataAdapter.Fill(Usua);
@@ -309,7 +309,7 @@ namespace Datos
             {
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("usuario.f_obtener_modusua", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = dat.Documento;
+                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = int.Parse(dat.Documento);
 
                 conection.Open();
                 dataAdapter.Fill(Usua);
@@ -339,19 +339,19 @@ namespace Datos
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("usuario.f_editar_usuarios", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 dataAdapter.SelectCommand.Parameters.Add("_nombre_usua", NpgsqlDbType.Varchar, 100).Value = datos.Nombre;
-                dataAdapter.SelectCommand.Parameters.Add("_rol_id", NpgsqlDbType.Integer).Value = datos.Rol;
+                dataAdapter.SelectCommand.Parameters.Add("_rol_id", NpgsqlDbType.Integer).Value = int.Parse(datos.Rol);
                 dataAdapter.SelectCommand.Parameters.Add("_user_name", NpgsqlDbType.Text).Value = datos.UserName;
                 dataAdapter.SelectCommand.Parameters.Add("_clave", NpgsqlDbType.Text).Value = datos.Clave;
                 dataAdapter.SelectCommand.Parameters.Add("_correo", NpgsqlDbType.Varchar, 100).Value = datos.Correo;
-                dataAdapter.SelectCommand.Parameters.Add("_estado", NpgsqlDbType.Boolean).Value = datos.Estado;
+                dataAdapter.SelectCommand.Parameters.Add("_estado", NpgsqlDbType.Boolean).Value = Convert.ToBoolean(datos.Estado);
                 dataAdapter.SelectCommand.Parameters.Add("_apellido_usua", NpgsqlDbType.Varchar, 100).Value = datos.Apellido;
                 dataAdapter.SelectCommand.Parameters.Add("_direccion", NpgsqlDbType.Varchar, 100).Value = datos.Direccion;
                 dataAdapter.SelectCommand.Parameters.Add("_telefono", NpgsqlDbType.Varchar, 100).Value = datos.Telefono;
-                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = datos.Documento;
+                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = int.Parse(datos.Documento);
                 dataAdapter.SelectCommand.Parameters.Add("_foto_usua", NpgsqlDbType.Varchar, 100).Value = datos.Foto;
                 dataAdapter.SelectCommand.Parameters.Add("_fecha_nac", NpgsqlDbType.Varchar, 100).Value = datos.fecha_nacimiento;
-                dataAdapter.SelectCommand.Parameters.Add("_dep_nacimiento", NpgsqlDbType.Integer).Value = datos.Departamento;
-                dataAdapter.SelectCommand.Parameters.Add("_ciu_nacimiento", NpgsqlDbType.Integer).Value = datos.Ciudad;
+                dataAdapter.SelectCommand.Parameters.Add("_dep_nacimiento", NpgsqlDbType.Integer).Value = int.Parse(datos.Departamento);
+                dataAdapter.SelectCommand.Parameters.Add("_ciu_nacimiento", NpgsqlDbType.Integer).Value = int.Parse(datos.Ciudad);
                 dataAdapter.SelectCommand.Parameters.Add("_session", NpgsqlDbType.Text).Value = datos.Session;
 
                 conection.Open();
@@ -427,19 +427,20 @@ namespace Datos
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("usuario.f_insertar_estudiante", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 dataAdapter.SelectCommand.Parameters.Add("_nombre_usua", NpgsqlDbType.Varchar, 100).Value = dat.Nombre;
-                dataAdapter.SelectCommand.Parameters.Add("_rol_id", NpgsqlDbType.Integer).Value = dat.Rol;
+                dataAdapter.SelectCommand.Parameters.Add("_rol_id", NpgsqlDbType.Integer).Value = int.Parse(dat.Rol);
                 dataAdapter.SelectCommand.Parameters.Add("_user_name", NpgsqlDbType.Text).Value = dat.UserName;
                 dataAdapter.SelectCommand.Parameters.Add("_clave", NpgsqlDbType.Text).Value = dat.Clave;
                 dataAdapter.SelectCommand.Parameters.Add("_correo", NpgsqlDbType.Varchar, 100).Value = dat.Correo;
                 dataAdapter.SelectCommand.Parameters.Add("_apellido_usua", NpgsqlDbType.Varchar, 100).Value = dat.Apellido;
                 dataAdapter.SelectCommand.Parameters.Add("_direccion", NpgsqlDbType.Varchar, 100).Value = dat.Direccion;
                 dataAdapter.SelectCommand.Parameters.Add("_telefono", NpgsqlDbType.Varchar, 100).Value = dat.Telefono;
-                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = dat.Documento;
+                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = int.Parse(dat.Documento);
                 dataAdapter.SelectCommand.Parameters.Add("_foto_usua", NpgsqlDbType.Varchar, 100).Value = dat.Foto;
-                dataAdapter.SelectCommand.Parameters.Add("_id_acudiente", NpgsqlDbType.Integer).Value = dat.id_Acudiente;
+                dataAdapter.SelectCommand.Parameters.Add("_id_acudiente", NpgsqlDbType.Integer).Value = int.Parse(dat.id_Acudiente);
                 dataAdapter.SelectCommand.Parameters.Add("_fecha_nac", NpgsqlDbType.Varchar, 100).Value = dat.fecha_nacimiento;
-                dataAdapter.SelectCommand.Parameters.Add("_dep_nacimiento", NpgsqlDbType.Integer).Value = dat.Departamento;
-                dataAdapter.SelectCommand.Parameters.Add("_ciu_nacimiento", NpgsqlDbType.Integer).Value = dat.Ciudad;
+                dataAdapter.SelectCommand.Parameters.Add("_dep_nacimiento", NpgsqlDbType.Integer).Value = int.Parse(dat.Departamento);
+                dataAdapter.SelectCommand.Parameters.Add("_ciu_nacimiento", NpgsqlDbType.Integer).Value = int.Parse(dat.Ciudad);
+                dataAdapter.SelectCommand.Parameters.Add("_session", NpgsqlDbType.Text).Value = dat.Session;
 
                 conection.Open();
                 dataAdapter.Fill(usua);
@@ -678,7 +679,7 @@ namespace Datos
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("usuario.f_valida_admin", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 dataAdapter.SelectCommand.Parameters.Add("_user_name", NpgsqlDbType.Text).Value = dat.UserName;
-                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = dat.Documento;
+                dataAdapter.SelectCommand.Parameters.Add("_num_documento", NpgsqlDbType.Integer).Value = int.Parse(dat.Documento);
 
 
 
@@ -778,7 +779,7 @@ namespace Datos
                 //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("SELECT nombre_materia, dia,hora_inicio, hora_fin FROM usuario.usuario, registro.estudiante_curso, registro.anio_curso, registro.curso_materia, registro.materia_fecha, registro.dia_materia, registro.materia WHERE usuario.id_usua = estudiante_curso.id_ec_estudiante AND anio_curso.id_ancu = estudiante_curso.id_ec_curso AND curso_materia.id_cm_curso = anio_curso.id_ancu AND materia_fecha.id_mf = curso_materia.id_cm_materia AND materia_fecha.id_mf_materia = materia.id_materia AND materia_fecha.id_mf_fecha = dia_materia.id_dia_materia AND usuario.id_usua = '" + id + "';", conection);
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("registro.f_obtener_horario_prof", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_id_usua", NpgsqlDbType.Integer).Value = int.Parse(id);
+                dataAdapter.SelectCommand.Parameters.Add("_id_usua", NpgsqlDbType.Integer).Value = id;
                 conection.Open();
                 dataAdapter.Fill(Usuario);
             }
@@ -805,7 +806,7 @@ namespace Datos
             {
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("registro.f_observador", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_id_estudiante", NpgsqlDbType.Integer).Value = int.Parse(dat);
+                dataAdapter.SelectCommand.Parameters.Add("_id_estudiante", NpgsqlDbType.Integer).Value = dat;
 
                 conection.Open();
                 dataAdapter.Fill(usua);
@@ -1047,8 +1048,8 @@ namespace Datos
             {
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("registro.f_traer_boletin", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_id_usua", NpgsqlDbType.Integer).Value = int.Parse(dat);
-                dataAdapter.SelectCommand.Parameters.Add("_id_ancu", NpgsqlDbType.Integer).Value = int.Parse(dat2);
+                dataAdapter.SelectCommand.Parameters.Add("_id_usua", NpgsqlDbType.Integer).Value = dat;
+                dataAdapter.SelectCommand.Parameters.Add("_id_ancu", NpgsqlDbType.Integer).Value = dat2;
 
                 conection.Open();
                 dataAdapter.Fill(usua);
@@ -1405,7 +1406,7 @@ namespace Datos
             try
             {
                 NpgsqlDataAdapter dataAdapt = new NpgsqlDataAdapter("usuario.f_obtener_estudiante", conection);
-                dataAdapt.SelectCommand.Parameters.Add("_id_usua", NpgsqlDbType.Integer).Value = int.Parse(reg);
+                dataAdapt.SelectCommand.Parameters.Add("_id_usua", NpgsqlDbType.Integer).Value = reg;
                 dataAdapt.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 conection.Open();
@@ -1669,8 +1670,8 @@ namespace Datos
             try
             {
                 NpgsqlDataAdapter dataAdapt = new NpgsqlDataAdapter("registro.f_obtener_materia_curso_pro", conection);
-                dataAdapt.SelectCommand.Parameters.Add("_id_curso", NpgsqlDbType.Integer).Value = int.Parse(Curso);
-                dataAdapt.SelectCommand.Parameters.Add("_id_cm_profesor", NpgsqlDbType.Integer).Value = int.Parse(Prof);
+                dataAdapt.SelectCommand.Parameters.Add("_id_curso", NpgsqlDbType.Integer).Value = Curso;
+                dataAdapt.SelectCommand.Parameters.Add("_id_cm_profesor", NpgsqlDbType.Integer).Value = Prof;
                 dataAdapt.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 conection.Open();
@@ -1824,8 +1825,8 @@ namespace Datos
             {
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("registro.f_traer_boletin", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_id_usua", NpgsqlDbType.Integer).Value = int.Parse(usu);
-                dataAdapter.SelectCommand.Parameters.Add("_id_ancu", NpgsqlDbType.Integer).Value = int.Parse(ancu);
+                dataAdapter.SelectCommand.Parameters.Add("_id_usua", NpgsqlDbType.Integer).Value = usu;
+                dataAdapter.SelectCommand.Parameters.Add("_id_ancu", NpgsqlDbType.Integer).Value = ancu;
                 conection.Open();
                 dataAdapter.Fill(usua);
             }
@@ -1997,7 +1998,7 @@ namespace Datos
             {
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("usuario.f_listar_est_acudiente", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_id_ac_acudiente", NpgsqlDbType.Integer).Value = int.Parse(usu);
+                dataAdapter.SelectCommand.Parameters.Add("_id_ac_acudiente", NpgsqlDbType.Integer).Value = usu;
 
                 conection.Open();
                 dataAdapter.Fill(usua);
@@ -2167,7 +2168,7 @@ namespace Datos
             try
             {
                 NpgsqlDataAdapter dataAdapt = new NpgsqlDataAdapter("usuario.f_obtener_Profesorcrys", conection);
-                dataAdapt.SelectCommand.Parameters.Add("_id_usua", NpgsqlDbType.Integer).Value = int.Parse(reg);
+                dataAdapt.SelectCommand.Parameters.Add("_id_usua", NpgsqlDbType.Integer).Value = reg;
                 dataAdapt.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 conection.Open();
